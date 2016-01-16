@@ -1,0 +1,29 @@
+<div id="chat">
+</div>
+
+<form id="send-text">
+  <input type="tex" id="new-text")>
+  <input type="submit" value="Send">
+</form>
+
+<script>
+  var ws = new Philote({url: "<%= server %>"});
+  var chatbox = document.querySelector("#chat");
+  var newText = document.querySelector("#new-text")
+
+  ws.on("<%= room %>", function(data, event) {
+    chatbox.innerHTML += "<h5>" + event.issuer + "</h5>";
+    chatbox.innerHTML += "<p>" + data + "</p>";
+  });
+
+  document.forms["send-text"].onsubmit = function(event) {
+    event.preventDefault();
+    ws.publish("<%= room %>", newText.value);
+
+    chatbox.innerHTML += "<h5>Me</h5>";
+    chatbox.innerHTML += "<p>" + newText.value + "</p>";
+    newText.value = "";
+  }
+
+  ws.connect("<%= token %>");
+</script>
