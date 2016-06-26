@@ -3,8 +3,7 @@ require 'cuba/render'
 require 'json'
 require 'philote'
 
-SERVER = ENV.fetch('WS_SERVER')
-
+SERVER = ENV.fetch('PHILOTE_URL')
 Philote.redis = Redic.new(ENV.fetch('REDIS_URL'))
 
 class ChatApp < Cuba
