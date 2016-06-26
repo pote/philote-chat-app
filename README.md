@@ -1,10 +1,10 @@
 # Philote Chat App
 
-This is an example chat application that uses Philote as websockets backend.
+This is an example chat application that uses [Philote](https://github.com/pote/philote) as websockets backend.
 
 ## The Ruby Backend
 
-The backend handles incoming http requests, generates a philote Access Key for each user and renders a view with it's identification token.
+The backend handles incoming http requests, generates a philote [Access Key](https://github.com/pote/philote#access-keys) for each user and renders a view with it's identification token.
 
 This part is done using [Cuba](https://github.com/soveran/cuba) and [Philote-rb](https://github.com/pote/philote-rb) but Philote is not tied to any specific framework or language, any app could implement it similarly even without their own specific client library.
 
