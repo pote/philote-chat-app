@@ -7,15 +7,21 @@
 </form>
 
 <script>
+  // Setup the client
   var ws = new Philote({url: "<%= server %>"});
+
   var chatbox = document.querySelector("#chat");
   var newText = document.querySelector("#new-text")
 
+  // We react to incoming messages on the room channel, appending
+  // their text to the DOM.
   ws.on("<%= room %>", function(data, event) {
     chatbox.innerHTML += "<h5>" + event.issuer + "</h5>";
     chatbox.innerHTML += "<p>" + data + "</p>";
   });
 
+  // Whenever the form is submitted, we publish the text area
+  // message into the websocket channel.
   document.forms["send-text"].onsubmit = function(event) {
     event.preventDefault();
     ws.publish("<%= room %>", newText.value);
@@ -25,5 +31,6 @@
     newText.value = "";
   }
 
+  // Start connection with the access key identifying token
   ws.connect("<%= token %>");
 </script>
