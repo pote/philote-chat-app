@@ -2,3 +2,4 @@ cuba:3.4.0
 puma:2.12.3
 tilt:2.0.1
 redic:1.5.0
+philote:0.3.0
