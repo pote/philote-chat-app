@@ -78,3 +78,7 @@ $ make server        # Will install the required ruby dependencies and run the s
 ```
 
 You can then visit your app in the browser, by default at [`localhost:6371/a-random-room-name`](http://localhost:6371/a-random-room-name), open it twice in order to have a fantastic time chatting with yourself for about 20 seconds.
+
+Here's an example:
+
+![runnning app](./example.gif)
